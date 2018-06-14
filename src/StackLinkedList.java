@@ -1,5 +1,5 @@
 
-public class StackClass {
+public class StackLinkedList {
 	private static class Node {
 		private String data;
 		private Node next;
