@@ -180,20 +180,24 @@ public class LinkedList {
 	}
 	
 	/*
-	 * Recursive Solution - 
+	 * Recursive Solution - recurse till the last node,
+	 * set last node as head
+	 * on backtracking after recursive call reset the links
+	 * to point in reverse order using temporary Node
 	 */
-	
-	public static Node1 head;
 
-	public void revLinkedList(Node1 p) {
+	public Node1 revLinkedList(Node1 p, Node1 head) {
+		//exit condition from recursion
 		if(p.next == null) {
 			head = p;
-			return;
+			return head;
 		}
-		revLinkedList(p.next);
+		head = revLinkedList(p.next, head);
 		Node1 q = p.next;
 		q.next = p;
 		p.next = null;
+		
+		return head;
 	}
 	
 	/*
@@ -218,4 +222,85 @@ public class LinkedList {
 		System.out.println(head.data);
 	}
 	
+	/**
+	 * Double Linked List - Node2
+	 * insert node at head
+	 */
+	
+	public Node2 insertDoublyLLHead(int data, Node2 head) {
+		Node2 node = new Node2(data);
+		if(head == null) {
+			head = node;
+			return head;
+		}
+		head.prev = node;
+		node.next = head;
+		head = node;
+		return head;
+	}
+	
+	/**
+	 * print nodes of double linked list
+	 */
+	
+	public void print(Node2 head) {
+		Node2 temp = head;
+		while(temp != null) {
+			System.out.println(temp.data);
+			temp = temp.next;
+		}
+	}
+	
+	/**
+	 * Reverse print double linked list
+	 */
+	
+	public void reversePrint(Node2 head) {
+		Node2 temp = head;
+		
+		//empty list, exit
+		if(temp == null) {
+			return;
+		}
+		
+		//going to last node
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		
+		//traversing backward using head prev pointer
+		while(temp != null) {
+			System.out.println(temp.data);
+			temp = temp.prev;
+		}
+	}
+	
+	/**
+	 * Double Linked List - Node2
+	 * insert node at tail
+	 */
+	
+	public Node2 insertDoublyLLTail(int data, Node2 head) {
+		Node2 node = new Node2(data);
+		if(head == null) {
+			head = node;
+			return head;
+		}
+		
+		//traversing to the last node
+		Node2 temp = head;
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		
+		//adding new node to the last node
+		temp.next = node;
+		node.prev = temp;
+		
+		return head;
+	}
+	
+	/**
+	 * How to check circular linked list
+	 */
 }
