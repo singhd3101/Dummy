@@ -1,3 +1,10 @@
+/**
+ * Stack implemented as LL with all operation at head because inserting
+ * accessing, deleting from tail will happen in constant time instead 
+ * of constant time.(Stack has all 4 operations in constant time)
+ * @author Divya
+ *
+ */
 
 public class StackLinkedList {
 	private static class Node {
