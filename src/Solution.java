@@ -347,13 +347,62 @@ public class Solution {
 		}
 		System.out.println(Math.abs(max - min));
 	}
+	
+	public static String reverseStringInConstanctSpace(String s) {
+		char[] charArray = s.toCharArray();
+		int j=charArray.length-1;
+		int i = 0;
+		while(i<j) {
+			char c = charArray[j];
+			charArray[j] = charArray[i];
+			charArray[i] = c;
+			i++;
+			j--;
+		}
+		return String.valueOf(charArray);
+	}
+	
+	private static Boolean checkBalParanth(String s) {
+		int n = s.length();
+		GenericStack<Character> stack = new GenericStack<Character>();
+		for(int i =0; i<s.length(); i++) {
+			if(Character.toString(s.charAt(i)).equals("(") ||
+			   Character.toString(s.charAt(i)).equals("{") ||
+			   Character.toString(s.charAt(i)).equals("[") ) {
+				stack.push(s.charAt(i));
+			}
+			else if(Character.toString(s.charAt(i)).equals(")") ||
+					   Character.toString(s.charAt(i)).equals("}") ||
+					   Character.toString(s.charAt(i)).equals("]") ) {
+				if(stack.isEmpty()) {
+					return false;
+				}
+				else if(!(Character.toString(s.charAt(i)).equals(")")) &&
+						(Character.toString(stack.peek()).equals("("))) {
+					return false;
+				}
+				else if(!(Character.toString(s.charAt(i)).equals("}")) &&
+						(Character.toString(stack.peek()).equals("{"))) {
+					return false;
+				}
+				else if(!(Character.toString(s.charAt(i)).equals("]")) &&
+						(Character.toString(stack.peek()).equals("["))) {
+					return false;
+				}
+				else {
+					stack.pop();
+				}
+			}
+		}
+		return stack.isEmpty();
+	}
 
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println(1.0/0.0);
-		
+	//	System.out.println(reverseStringInConstanctSpace("testing"));
+	//	System.out.println(checkBalParanth(")("));
 		
 		/*int[] arr = new int[3];
 		arr[0] = 1;

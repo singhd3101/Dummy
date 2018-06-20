@@ -2,7 +2,10 @@
  * Stack implemented as LL with all operation at head because inserting
  * accessing, deleting from tail will happen in constant time instead 
  * of constant time.(Stack has all 4 operations in constant time)
- * @author Divya
+ * No need to worry about memory overflow as in the case of Stack implementation
+ * using array. Only some amount of memory used to store next node.
+ * But the stack can be dynamically increased or decreased as per user requirement
+ * @author Divya Singh
  *
  */
 
