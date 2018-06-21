@@ -17,7 +17,7 @@ public class PrePostInfixExpression {
 			} else {
 				int x = Integer.parseInt(String.valueOf(stack.pop()));
 				int y = Integer.parseInt(String.valueOf(stack.pop()));
-				stack.push(performOperation(x,y,arr[i]));
+				stack.push(performOperation(y,x,arr[i]));
 			}
 		}
 		return Integer.parseInt(String.valueOf(stack.peek()));
@@ -38,5 +38,25 @@ public class PrePostInfixExpression {
 			default:
 				return null;
 		}
+	}
+	
+	/**
+	 * Need to handle delimiters as space or commas
+	 * @param s
+	 * @return
+	 */
+	public int evaluatePrefixExpression(String s) {
+		GenericStack<Character> stack  = new GenericStack<Character>();
+		char[] arr = s.toCharArray();
+		for(int i=s.length()-1; i>=0; i--) {
+			if((arr[i] != '+') || (arr[i] != '-') || (arr[i] != '*') || (arr[i] != '/') || (arr[i] != '^')) {
+				stack.push(arr[i]);
+			} else {
+				int x = Integer.parseInt(String.valueOf(stack.pop()));
+				int y = Integer.parseInt(String.valueOf(stack.pop()));
+				stack.push(performOperation(x,y,arr[i]));
+			}
+		}
+		return Integer.parseInt(String.valueOf(stack.peek()));
 	}
 }
