@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class LinkedList {
+public class LinkedListClass {
 	
 	/**
 	 * match two linked list if they are equal = same data in same number of nodes
