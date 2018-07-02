@@ -1,10 +1,10 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * print level order traversal of trees also known as bfs
  *
  */
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class LevelOrderTraversalBFS {
 	
