@@ -437,6 +437,10 @@ public class Solution {
 
 	public static void main(String[] args) throws IOException {
 		
+		int[] a = {10,20,30,40};
+		
+		System.out.println(a[a.length-1]);
+		
 		//countAlphabetsInString("a5$&45NdG");
 
 		//	System.out.println(reverseStringInConstanctSpace("testing"));
