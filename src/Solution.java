@@ -436,8 +436,8 @@ public class Solution {
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
-
-		countAlphabetsInString("a5$&45NdG");
+		
+		//countAlphabetsInString("a5$&45NdG");
 
 		//	System.out.println(reverseStringInConstanctSpace("testing"));
 		//	System.out.println(checkBalParanth(")("));
