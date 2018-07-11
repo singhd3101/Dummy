@@ -5,6 +5,7 @@
  * right and other stack for printing from right to left. In every iteration,
  * we have nodes of one level in one of the stacks. We print the nodes, and 
  * push nodes of next level in other stack.
+ * O(n)
  */
 
 public class SpiralBinaryTree {

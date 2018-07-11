@@ -100,8 +100,8 @@ public class Solution {
 
 	boolean hasCycle(Node1 head) {
 		if (head == null) {
-            return false;
-        }
+			return false;
+		}
 		Set<Node1> s = new HashSet<Node1>();
 		while(head != null) {
 			if (s.contains(head)) {
@@ -114,20 +114,20 @@ public class Solution {
 		}
 		return false;
 	}
-	
+
 	boolean hasCycleLinkedList(Node1 head) {
-	    if(head == null){
-	        return false;
-	    }
-	    Node1 fast = head;
-	    while(head.next != null && fast != null){
-	        head = head.next;
-	        fast = fast.next.next;
-	        if(head == fast){
-	            return true;
-	        }
-	    }
-	    return false;
+		if(head == null){
+			return false;
+		}
+		Node1 fast = head;
+		while(head.next != null && fast != null){
+			head = head.next;
+			fast = fast.next.next;
+			if(head == fast){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	static int[] solve(int[] a, int[] b) {
@@ -241,6 +241,42 @@ public class Solution {
 		System.out.println(n.isProbablePrime(1) ? "prime" :"not prime");
 	}
 
+	/** Second version of isPrimeNumber method, with improvement like not 
+	 *  checking for division by even number, if its not divisible by 2. 
+	 */ 
+
+	private static boolean isPrimeNumber(int number) { 
+		if (number == 2 || number == 3) { 
+			return true; 
+		} 
+		if (number % 2 == 0) { 
+			return false; 
+		} 
+		int sqrt = (int) Math.sqrt(number) + 1; 
+		for (int i = 3; i < sqrt; i += 2) { 
+			if (number % i == 0) { 
+				return false; 
+			} 
+		} 
+		return true; 
+	}
+
+
+	/**
+	 * Given a string S, print the number of digits and number of english alphabets in it.
+	 */
+
+	private static void countAlphabetsInString(String myString) {
+		int count = 0;
+		for (int i = 0; i < myString.length(); i++) {
+			if (Character.isAlphabetic(myString.charAt(i))) {
+				System.out.println("char at pos: "+i);
+				count++;  
+			}
+		}
+		System.out.println(count);
+	}
+
 	public static int lonelyInteger(int[] a) {
 		Set<Integer> set = new HashSet<Integer>();
 		for (int i=0; i<a.length;i++){
@@ -347,7 +383,7 @@ public class Solution {
 		}
 		System.out.println(Math.abs(max - min));
 	}
-	
+
 	public static String reverseStringInConstanctSpace(String s) {
 		char[] charArray = s.toCharArray();
 		int j=charArray.length-1;
@@ -361,19 +397,19 @@ public class Solution {
 		}
 		return String.valueOf(charArray);
 	}
-	
+
 	private static Boolean checkBalParanth(String s) {
 		int n = s.length();
 		GenericStack<Character> stack = new GenericStack<Character>();
 		for(int i =0; i<s.length(); i++) {
 			if(Character.toString(s.charAt(i)).equals("(") ||
-			   Character.toString(s.charAt(i)).equals("{") ||
-			   Character.toString(s.charAt(i)).equals("[") ) {
+					Character.toString(s.charAt(i)).equals("{") ||
+					Character.toString(s.charAt(i)).equals("[") ) {
 				stack.push(s.charAt(i));
 			}
 			else if(Character.toString(s.charAt(i)).equals(")") ||
-					   Character.toString(s.charAt(i)).equals("}") ||
-					   Character.toString(s.charAt(i)).equals("]") ) {
+					Character.toString(s.charAt(i)).equals("}") ||
+					Character.toString(s.charAt(i)).equals("]") ) {
 				if(stack.isEmpty()) {
 					return false;
 				}
@@ -401,9 +437,15 @@ public class Solution {
 
 	public static void main(String[] args) throws IOException {
 		
-	//	System.out.println(reverseStringInConstanctSpace("testing"));
-	//	System.out.println(checkBalParanth(")("));
+		int[] a = {10,20,30,40};
 		
+		System.out.println(a[a.length-1]);
+		
+		//countAlphabetsInString("a5$&45NdG");
+
+		//	System.out.println(reverseStringInConstanctSpace("testing"));
+		//	System.out.println(checkBalParanth(")("));
+
 		/*int[] arr = new int[3];
 		arr[0] = 1;
 		arr[1] = 2;
