@@ -18,22 +18,20 @@ public class BinarySearchTree {
 		if(root == null) {
 			return -1;
 		}
-		Node curr = root;
-		while(curr.left != null) {
-			curr = curr.left;
+		if(root.left == null) {
+			return root.data;
 		}
-		return curr.data;
+		return minElementinBST(root.left);
 	}
 
 	public static int maxElementinBST(Node root) {
 		if(root == null) {
 			return -1;
 		}
-		Node curr = root;
-		while(curr.right != null) {
-			curr = curr.right;
+		if(root.right == null) {
+			return root.data;
 		}
-		return curr.data;
+		return maxElementinBST(root.right);
 	}
 
 	public static void main(String[] args) {

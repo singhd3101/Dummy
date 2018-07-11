@@ -30,7 +30,7 @@ public class Node {
     }
 	
 	/**
-	 * MEthod to get height of the Binary tree
+	 * Method to get height of the Binary tree, by counting number of edges
 	 * @param root
 	 * @return
 	 */
