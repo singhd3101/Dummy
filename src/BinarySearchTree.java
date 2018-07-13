@@ -79,6 +79,20 @@ public class BinarySearchTree {
 		print(node.left);
 		print(node.right);
 	}
+	
+	// Runtime - O(h)
+	public static Node search(Node root, int data)
+	{
+	    if (root==null || root.data==data) {
+	    	return root;
+	    }
+	       
+	    if (root.data > data) {
+	    	return search(root.left, data);
+	    } 
+	 
+	    return search(root.right, data);
+	}
 
 	public static void main(String[] args) {
 		Node node = null;
